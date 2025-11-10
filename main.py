@@ -1,41 +1,44 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.w3schools.com/"   
-response = requests.get(url)
-soup = BeautifulSoup(response.text, "html.parser")
+url =  input("Enter the URL you want to scrape: ")
 
-while True:
+try:
 
-    print("Welcome to the Webscraper\n" \
-    "1. to Scrape the whole Site\n" \
-    "2. to Scrape the Titles\n")
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
 
-    x = input("\nEnter the number of your choice here: ")
+    while True:
 
-    if(x == "1"):
-        titles = soup.find_all("html")  
+        print("Welcome to the Webscraper\n" \
+        "1. to Scrape the whole Site\n" \
+        "2. to Scrape an HTML-Tag\n" \
+        "3. To exit")
 
-        with open("demofile.txt", "a", encoding="UTF-8") as f:
-            for title in titles:
-                f.write(f"--------\n{title.text}\n--------")
+        x = input("\nEnter the number of your choice here: ")
 
-        with open("demofile.txt", "r", encoding="UTF-8") as f:
-            print(f.read())
+        if(x == "1"):
+            page_text = soup.get_text(separator="\n", strip=True)
 
-    elif(x == "2"):
-        titles = soup.find_all("h1")  
+            with open("demofile.txt", "w", encoding="utf-8") as f:
+                f.write(page_text)
 
-        with open("demofile.txt", "w", encoding="UTF-8") as f:
-            for title in titles:
-                f.write(f"--------\n{title.text}\n--------")
+            print(page_text[:500])
 
-        with open("demofile.txt", "r", encoding="UTF-8") as f:
-            print(f.read())
+        elif(x == "2"):
 
+            tag = input("Type the HTML-Tag: ")
 
+            titles = soup.find_all(tag)  
 
+            with open("demofile.txt", "w", encoding="UTF-8") as f:
+                for title in titles:
+                    f.write(f"--------\n{title.text}\n--------")
 
-
-
-
+            with open("demofile.txt", "r", encoding="UTF-8") as f:
+                print(f.read())
+        elif(x== "3"):
+            break
+except requests.exceptions.RequestException as e:
+    print("Error: ", e)
+    
