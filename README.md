@@ -1,34 +1,28 @@
 # Webscraper
 
-A simple Python web scraper project — fetches web content and stores data to a local file.
+A simple Python command-line web scraper that can scrape an entire web page or specific HTML tags and save the content to a local file.
 
 ## Features
-
-- Download web pages (or data) from provided URLs  
-- Parse the content (e.g. HTML) — (maybe you use BeautifulSoup or something; specify here)  
-- Save scraped content to local files  
-- (Optional: add more — e.g. export to JSON, support for crawling multiple links)
+- Scrape the full text of a web page
+- Scrape specific HTML tags
+- Save scraped content to a local file (`demofile.txt`)
+- Simple CLI interface
 
 ## Requirements
+- Python 3.x
+- Modules: `requests`, `beautifulsoup4`
 
-- Python 3.x  
-- Standard libraries: `os`, `json`, `datetime` (plus any scraping‑specific ones if you use them)
+## Installation & Usage
+Clone the repository and run the script:
 
-## Installation
+    git clone https://github.com/CIBIKRAKER/webscraper.git
+    cd webscraper
+    python main.py
 
-1. Clone the repository:
-   
-    - git clone https://github.com/CIBIKRAKER/webscraper.git
+Follow the on-screen menu:
 
-    - cd webscraper
+1. Scrape the whole site
+2. Scrape an HTML tag
+3. Exit
 
-4. Create a virtual environment:
-    - python -m venv venv
-    - source venv/bin/activate  # on Linux/macOS  
-    - venv\Scripts\activate     # on Windows
-
-5. INstall dependencies:
-   - pip install -r requirements.txt
-   
-6. Run the file:
-   - python main.py
+Enter the URL when prompted and select your scraping option. The scraped content will be saved to `demofile.txt` and partially displayed in the console.
