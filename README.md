@@ -18,17 +18,17 @@ A simple Python web scraper project — fetches web content and stores data to a
 
 1. Clone the repository:
    
-    git clone https://github.com/CIBIKRAKER/webscraper.git
+    - git clone https://github.com/CIBIKRAKER/webscraper.git
 
-    cd webscraper
+    - cd webscraper
 
 4. Create a virtual environment:
-    python -m venv venv
-    source venv/bin/activate  # on Linux/macOS  
-    venv\Scripts\activate     # on Windows
+    - python -m venv venv
+    - source venv/bin/activate  # on Linux/macOS  
+    - venv\Scripts\activate     # on Windows
 
 5. INstall dependencies:
-    pip install -r requirements.txt
+   - pip install -r requirements.txt
    
 6. Run the file:
-    python main.py
+   - python main.py
